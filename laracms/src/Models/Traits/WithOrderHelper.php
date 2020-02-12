@@ -62,7 +62,7 @@ trait WithOrderHelper
     public function scopeWithOrder($query, $sortField, $sortOrder)
     {
         $sortField = empty($sortField) ? 'updated_at' : $sortField;
-        $sortOrder = in_array($sortOrder, ['asc','desc']) ? 'desc' : $sortOrder;
+        $sortOrder = empty($sortOrder) ? 'desc' : $sortOrder;
 
         return $query->orderBy($sortField, $sortOrder);
     }

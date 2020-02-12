@@ -73,6 +73,7 @@ class UsersController extends Controller
      */
     public function me()
     {
+//        return $this->response->item(auth('api')->user(), new UserTransformer());
         return $this->response->item($this->user(), new UserTransformer());
     }
 }

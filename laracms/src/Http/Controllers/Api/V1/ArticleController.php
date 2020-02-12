@@ -43,6 +43,15 @@ class ArticleController extends Controller
         $articles = $category->articles();
         $articles = $articles->ordered()->recent()->paginate(10);
 
-        return $this->response->paginator($articles, new ArticleTransformer());
+        foreach($articles as $k=>$v){
+            $v['thumb']=storage_image_url($v['thumb']);
+//            $v['link']=backend_url($v['link']);
+        }
+
+        return $this->success($articles);
+
+
+//        return $this->response->paginator($articles, new ArticleTransformer())
+//            ->setMeta(['return_code'=>200,'message'=>'成功']);
     }
 }

@@ -27,6 +27,7 @@ class ArticleRequest extends Request
             // CREATE
             case 'POST':
             {
+                return 888;
                 return [
                     'category_id' => 'required|array',
                     'category_id.*' => 'integer',
